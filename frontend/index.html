@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a2b">
+  <meta name="description" content="A private, experimental tool for documenting visible observations and body landmarks.">
+  <title>AI Body Scan — Visual screening & documentation</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="AI Body Scan home"><span class="brand-mark">+</span><span>AI BODY <b>SCAN</b></span></a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="primary-nav">
+      <a class="active" href="index.html">Overview</a><a href="scanner.html">New scan</a><a href="reports.html">My reports</a><a href="doctor.html">Clinician portal</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> VISUAL DOCUMENTATION · NOT A DIAGNOSIS</p>
+        <h1>A clearer way to <span>document</span> what you see.</h1>
+        <p class="hero-lede">Capture guided body views, note visible observations, and securely share a record with a clinician. You stay in control of every image.</p>
+        <div class="hero-actions"><a class="button button-primary" href="scanner.html">Start a scan <span aria-hidden="true">→</span></a><a class="text-link" href="#how-it-works">How it works</a></div>
+        <div class="hero-proof"><span class="proof-icon">◈</span><span><b>Private by design</b><small>No account or personal details required to create a scan.</small></span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card">
+          <div class="visual-top"><span>BODY LANDMARKS</span><span class="live-label"><i></i> READY</span></div>
+          <svg class="hero-body" viewBox="0 0 220 350" role="img">
+            <circle cx="110" cy="38" r="23" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M92 68 Q110 60 128 68 L143 91 158 151 145 156 131 111 135 183 126 197 132 270 123 280 111 221 98 280 88 270 95 197 85 183 89 111 75 156 62 151 77 91Z" fill="#163146" stroke="currentColor" stroke-width="2"/>
+            <path d="M110 64V210M77 91L54 150M143 91L166 150M98 280L88 333M123 280L132 333" fill="none" stroke="#20c7d9" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <circle cx="110" cy="75" r="4" fill="#20c7d9"/><circle cx="85" cy="111" r="4" fill="#20c7d9"/><circle cx="135" cy="111" r="4" fill="#20c7d9"/><circle cx="98" cy="197" r="4" fill="#20c7d9"/><circle cx="123" cy="197" r="4" fill="#20c7d9"/>
+          </svg>
+          <div class="visual-caption"><span class="caption-line"></span><span>Landmarks are not injury detection</span></div>
+        </div>
+        <span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span>
+      </div>
+    </section>
+    <section class="trust-strip"><div class="container trust-inner"><span>DESIGNED FOR RESPONSIBLE DOCUMENTATION</span><span>Consent-first</span><span>Secure image access</span><span>No automated diagnosis</span></div></section>
+    <section id="how-it-works" class="section container">
+      <div class="section-heading"><p class="eyebrow">A SIMPLE, PRIVATE WORKFLOW</p><h2>Document. Review. Share.</h2><p>Useful visual notes start with clear images and honest limits.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-number">01</span><div class="feature-icon">◎</div><h3>Capture guided views</h3><p>Use your camera or select photos. Front, back, and side views help organize your record.</p></article>
+        <article class="feature-card"><span class="feature-number">02</span><div class="feature-icon">⌖</div><h3>Mark what you notice</h3><p>Select body areas and record visible findings in your own words. No injury result is invented.</p></article>
+        <article class="feature-card"><span class="feature-number">03</span><div class="feature-icon">↗</div><h3>Share for review</h3><p>Keep your private report access code and share it only with someone you trust.</p></article>
+      </div>
+    </section>
+    <section class="safety-section"><div class="container safety-card"><span class="safety-symbol">!</span><div><p class="eyebrow">IMPORTANT MEDICAL SAFETY</p><h2>This is not a medical diagnosis.</h2><p>This experimental documentation tool cannot detect or rule out fractures, internal bleeding, or internal organ damage. A normal-looking image does not mean you are medically safe. <b>Do not delay treatment.</b> Call emergency services for a medical emergency or seek urgent professional care.</p></div></div></section>
+    <section class="closing-cta container"><div><p class="eyebrow">YOUR BODY. YOUR RECORD.</p><h2>Start when you're ready.</h2></div><a class="button button-dark" href="scanner.html">Begin documentation <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">+</span><span>AI BODY <b>SCAN</b></span></a><span>Experimental visual documentation tool · Not for emergency use</span><span>© <span data-year></span> AI Body Scan</span></div></footer>
+</body>
+</html>

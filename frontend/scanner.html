@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101a2b">
+  <title>New scan — AI Body Scan</title><link rel="stylesheet" href="css/style.css">
+  <script defer src="js/config.js"></script><script defer src="js/app.js"></script><script defer src="js/scanner.js"></script>
+</head>
+<body data-page="scanner">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">+</span><span>AI BODY <b>SCAN</b></span></a><button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">Menu</button><nav id="primary-nav" class="primary-nav"><a href="index.html">Overview</a><a class="active" href="scanner.html">New scan</a><a href="reports.html">My reports</a><a href="doctor.html">Clinician portal</a></nav></header>
+  <main class="container page-main">
+    <div class="page-title"><div><p class="eyebrow">PRIVATE DOCUMENTATION</p><h1>Create a visual record</h1><p>Consent first. Your photos are uploaded only when you choose Submit scan.</p></div><span class="step-badge"><span>01</span> Capture &amp; document</span></div>
+    <div id="scanner-message" class="notice" role="status" aria-live="polite" hidden></div>
+    <section class="consent-panel panel">
+      <div class="panel-icon">◈</div><div class="consent-copy"><h2>Before you begin</h2><p>This experimental tool processes photos to identify body landmarks and organize visible observations. Images are stored privately on the configured server. Landmark detection is not injury detection; no diagnosis or medical clearance is provided.</p>
+        <label class="check-row"><input id="consent-check" type="checkbox"><span>I understand and consent to capturing and submitting these images for visual documentation. I can stop or delete images later.</span></label>
+      </div>
+    </section>
+    <div class="scanner-layout">
+      <section class="panel camera-panel">
+        <div class="panel-heading"><div><p class="eyebrow">01 / CAMERA</p><h2>Capture body views</h2></div><span id="camera-state" class="subtle-badge">Camera off</span></div>
+        <p class="supporting-text">Use a well-lit area, place the phone upright, and keep your full body in frame. A rear camera is selected by default.</p>
+        <div class="camera-frame"><video id="camera-preview" autoplay muted playsinline aria-label="Live camera preview"></video><div id="camera-placeholder" class="camera-placeholder"><span class="camera-symbol">◎</span><span>Your camera preview appears here</span><small>Camera access requires HTTPS or localhost.</small></div><div class="camera-overlay" aria-hidden="true"><span></span></div></div>
+        <div class="camera-controls">
+          <label class="field-label" for="camera-select">Available camera</label><select id="camera-select" disabled><option value="">Default rear camera</option></select>
+          <div class="button-row"><button id="start-camera" class="button button-primary" type="button" disabled>Start camera</button><button id="switch-camera" class="button button-outline" type="button" disabled>Switch camera</button><button id="stop-camera" class="button button-quiet" type="button" disabled>Stop camera</button></div>
+          <div class="capture-row"><label class="field-label" for="view-select">View to capture</label><select id="view-select"><option value="front">Front</option><option value="back">Back</option><option value="left">Left side</option><option value="right">Right side</option></select><button id="capture-photo" class="button button-dark" type="button" disabled>Capture view</button></div>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">02 / PHOTOS</p><h2>Your images</h2></div><span id="photo-count" class="subtle-badge">0 / 16</span></div>
+        <p class="supporting-text">Capture four views or add JPEG, PNG, and WebP files (8 MB max each). Review and remove any image before submission.</p>
+        <label class="upload-zone" for="photo-upload"><span class="upload-icon">↑</span><b>Choose photos</b><span>Browse this device · JPEG, PNG, WebP</span><input id="photo-upload" type="file" accept="image/jpeg,image/png,image/webp" multiple disabled></label>
+        <div id="photo-gallery" class="photo-gallery" aria-live="polite"><div class="empty-gallery">No photos added yet.</div></div>
+        <p class="fine-print">No image is sent to the server until you press “Submit scan”.</p>
+      </section>
+    </div>
+    <section class="panel body-map-panel">
+      <div class="panel-heading"><div><p class="eyebrow">03 / BODY MAP</p><h2>Where would you like to note an observation?</h2></div><span class="subtle-badge">Select any areas</span></div>
+      <p class="supporting-text">Choose front or back, then select one or more body regions. These are your selections—not AI findings.</p>
+      <div class="map-toolbar" role="group" aria-label="Body map view"><button class="map-view active" data-map-view="front" type="button">Front view</button><button class="map-view" data-map-view="back" type="button">Back view</button></div>
+      <div class="body-map-content">
+        <div id="body-diagram" class="body-diagram" data-view="front" aria-label="Selectable body map">
+          <svg viewBox="0 0 180 360" aria-hidden="true"><circle cx="90" cy="35" r="23"/><path d="M72 65Q90 57 108 65L125 80 144 150 131 155 116 111 120 186 112 202 121 278 108 284 90 220 72 284 59 278 68 202 60 186 64 111 49 155 36 150 55 80Z"/></svg>
+          <div id="region-pins" class="region-pins"></div>
+        </div>
+        <div class="region-picker"><p class="field-label">BODY REGIONS</p><div id="region-buttons" class="region-buttons"></div><p class="fine-print">Body left/right refer to the person's own left and right.</p></div>
+      </div>
+      <div id="selected-regions" class="selected-list">No body areas selected.</div>
+    </section>
+    <section class="panel observations-panel">
+      <div class="panel-heading"><div><p class="eyebrow">04 / OBSERVATIONS</p><h2>Record visible findings</h2></div><span class="subtle-badge">User-entered</span></div>
+      <p class="supporting-text">Select only what you can see. This does not mean the tool detected or verified a finding.</p>
+      <div class="observation-grid">
+        <label class="observation-option"><input type="checkbox" name="observation" value="cuts"><span>Cut</span></label><label class="observation-option"><input type="checkbox" name="observation" value="bruises"><span>Bruise</span></label><label class="observation-option"><input type="checkbox" name="observation" value="swelling"><span>Swelling</span></label><label class="observation-option"><input type="checkbox" name="observation" value="abrasions"><span>Abrasion</span></label><label class="observation-option"><input type="checkbox" name="observation" value="redness"><span>Redness</span></label><label class="observation-option"><input type="checkbox" name="observation" value="other"><span>Other visible finding</span></label>
+      </div>
+      <label class="field-label note-label" for="observation-note">Optional note about what you observed</label><textarea id="observation-note" rows="3" maxlength="1000" placeholder="Describe only what you can see. Avoid adding names or other identifying details."></textarea>
+      <div class="analysis-unavailable"><span>AI</span><p><b>AI injury analysis unavailable</b><br>No clinically validated injury model is configured. Pose landmarks, if available, only describe body position and are not injury findings.</p></div>
+    </section>
+    <div class="submit-bar"><p><b>Only submit if you're ready.</b><br>Your report access code appears once after submission. Save it securely.</p><div class="submit-actions"><a class="button button-quiet" href="index.html">Cancel scan</a><button id="submit-scan" class="button button-primary" type="button" disabled>Submit scan <span aria-hidden="true">→</span></button></div></div>
+    <section id="submission-result" class="panel submission-result" hidden aria-live="polite"></section>
+    <p class="emergency-note"><b>Medical emergency?</b> Do not use this tool or wait for a report. Call your local emergency number or seek immediate medical care.</p>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">+</span><span>AI BODY <b>SCAN</b></span></a><span>Experimental tool · Not a diagnosis</span><span>© <span data-year></span></span></div></footer>
+</body></html>
